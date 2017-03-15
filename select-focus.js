@@ -1,14 +1,14 @@
-function selectFocus(){
+function selectFocus(parentClass,focusClass){
 	if($('select').length > 0){
 		$('select').focus(function(){
-			$(this).parent().addClass('focus');
+			$(this).parents('.' + parentClass).addClass(focusClass);
 		});
 		$('select').blur(function(){
-			$(this).parent().removeClass('focus');
+			$(this).parents('.' + parentClass).removeClass(focusClass);
 		});
 	}
 }
 
 $(document).ready(function(){
-	selectFocus();
+	selectFocus('styled-select','focus');
 });
